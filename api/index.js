@@ -5,7 +5,7 @@ import env from 'dotenv';
 env.config();
 
 mongoose.connect(process.env.MONGODB).then(() => {
-    console.log("MongpDb is connted.....")
+    console.log("MongoDb is connted.....")
 }).catch((error) => {
     console.log(error)
 })
