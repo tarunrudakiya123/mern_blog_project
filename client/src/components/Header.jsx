@@ -3,9 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useState } from "react";
 import { FaMoon, FaSun } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme } from "../redux/theme/themeSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
   const path = useLocation().pathname;
 
@@ -35,7 +37,7 @@ const Header = () => {
         </Button>
 
         <div className="flex gap-2 md:order-2">
-          <Button className="w-12 h-10 hidden sm:inline">
+          <Button className="w-12 h-10 hidden sm:inline" onClick={() => dispatch(toggleTheme())}>
             <FaMoon />
           </Button>
 
